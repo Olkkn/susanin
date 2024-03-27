@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Ваши задачи</h2>
+<table>
+
+    <tr>
+        <th>номер</th>
+        <th>участок</th>
+        <th>работник</th>
+        <th>мастер</th>
+        <th>дата принятия задачи</th>
+        <th>дата выполнения задачи</th>
+        <th>статус</th>
+    </tr>
+   {% for t in tasks %}
+    <tr>
+        <td>{{t.task_id}}</td>
+        <td>{{t.area_address}}</td>
+        <td>{{t.doer_name}}</td>
+        <td>{{t.master_name}}</td>
+        <td>{{t.start_date}}</td>
+        <td>{{t.done_date}}</td>
+        <td>{{t.status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>USERS</h2>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>role</th>
+    </tr>
+  {% for u in users %}
+    <tr>
+        <td>{{u.user_id}}</td>
+        <td>{{u.user_name}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.role}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br/>
+<br/>
+<br/>
+<h2>AREAS</h2>
+<table>
+
+    <tr>
+        <th>id</th>
+        <th>coordinates</th>
+        <th>address</th>
+        <th>status</th>
+    </tr>
+   {% for a in areas %}
+    <tr>
+        <td>{{a.area_id}}</td>
+        <td>{{a.coordinates}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script>
+    const areas_data = {{ areas_data | tojson}}
+</script>
+
+    <script src=https://api-maps.yandex.ru/v3/?apikey=988055a8-01e7-4f09-af12-3aa07bf50caa&lang=ru_RU></script>
+<script src=/static/susanin.js></script>
+
+
+</head>
+<body>
+
+<h2>Ваши задачи, {{c_user_name}} </h2>
+<table>
+
+    <tr>
+        <th>номер</th>
+        <th>участок</th>
+        <th>работник</th>
+        <th>мастер</th>
+        <th>дата  принятия </th>
+        <th>дата  выполнения </th>
+        <th>статус</th>
+        <th> </th>
+    </tr>
+   {% for t in tasks %}
+    <tr>
+        <td>{{t.task_id}}</td>
+        <td>{{t.area_address}}</td>
+        <td>{{t.doer_name}}</td>
+        <td>{{t.master_name}}</td>
+        <td>{{t.start_date}}</td>
+        <td>{{t.done_date}}</td>
+        <td>{{t.status}}</td>
+        <td><a href="/tasks/{{t.task_id}}">Изменить статус задачи</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div id="map" style="width:1024px; height:768px"></div>
+
+
+</body>
+</html>
