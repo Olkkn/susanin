@@ -65,8 +65,6 @@ def tasks():
                       repos.area_repo.get_areas()]
         if c_user.role == 'master':
 
-            # areas_data = [ {"status": x.status, "coordinates": x.coordinates, "address": x.address }  for x in repos.area_repo.get_areas()]
-
             return render_template('mastertasks.html',
                                     c_user_name=c_user.user_name,
                                     users=repos.user_repo.get_all_users(),
@@ -144,7 +142,7 @@ def newtask():
         selected_area = int(request.form['area_list'])
 
         t = repos.task_repo.create_task(area_id=selected_area, doer=selected_user,
-                                        start_date='2024-02-10', done_date='--', task_status='new', master=a_user.user_id)
+                                        start_date='2024-02-10', done_date='--', task_status='Новая', master=a_user.user_id, photo='')
 
         print("t.area", t.area_id)
 
